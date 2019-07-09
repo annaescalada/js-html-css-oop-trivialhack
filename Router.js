@@ -9,8 +9,8 @@ Router.prototype.buildDOM = function (url, parentElement) {
     case '/':
       this.generateLandingPage(parentElement);
       break;
-    case '/movies':
-      this.generateMoviesPage(parentElement);
+    case '/trivial':
+      this.generateTrivialPage(parentElement);
       break;
     default:
       this.generateLandingPage(parentElement);
@@ -23,8 +23,8 @@ Router.prototype.generateLandingPage = function(parentElement) {
   this.page.generate();
 }
 
-Router.prototype.generateMoviesPage = function(parentElement) {
-  this.page = new MoviesPage(parentElement);
+Router.prototype.generateTrivialPage = function(parentElement) {
+  this.page = new TrivialPage(parentElement);
   this.page.generate(); 
 }
 

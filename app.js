@@ -1,20 +1,21 @@
 'use strict';
 
 function main(){
-  debugger;
   var ENTRY_POINT = '/';
   var layoutsInstance = null;
   var navbarInstance = null;
+  var footerInstance = null;
   var links = [
     {name: 'Home', 
-      url: '/'},
-    {name: 'Movies',
-    url:'/movies'}
+    url: '/'},
+    {name: 'Trivial',
+    url:'/trivial'}
   ];
   var rootElement = document.querySelector('#root');
-
+  
   generateLayout();
   generateNavbar();
+  generateFooter();
   addListenersToNavbar();
   activateRouter();
 
@@ -27,6 +28,11 @@ function main(){
   function generateNavbar() {
     navbarInstance = new Navbar(layoutsInstance.header, links);
     navbarInstance.generate();
+  }
+
+  function generateFooter() {
+    footerInstance = new Footer(layoutsInstance.footer);
+    footerInstance.generate();
   }
 
   function activateRouter() {
@@ -42,6 +48,7 @@ function main(){
   }
 
   function changePage(event) {
+    debugger;
     var url = event.target.attributes.url.value;
     routerInstance.buildDOM(url, layoutsInstance.main);
   }
