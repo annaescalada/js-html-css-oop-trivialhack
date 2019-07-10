@@ -14,7 +14,6 @@ LandingPage.prototype.generate = function() {
       <button id="landing-button">Play</button>
     </header>
   `;
-  debugger;
   this.render();
   var button = document.querySelector('#landing-button');
   button.addEventListener('click',this.changePage);

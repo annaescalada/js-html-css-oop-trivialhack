@@ -6,7 +6,8 @@ function Footer(parentElement) {
 }
 
 Footer.prototype.generate = function(){
-  this.elements = `<p>Nice footer</p>`;
+  var date = new Date();
+  this.elements = `<p>Copyright © ${date.getFullYear()} Anna Escalada. All rights reserved.</p>`;
   this.render();
 }
 

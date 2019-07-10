@@ -9,6 +9,8 @@ function Navbar(parentElement, links, style){
 
 Navbar.prototype.generate = function(){
   this.elements = `<nav>
+                      <img class="logo" src="styles/images/Logo.png" alt="Logo">
+                      <p class="logo-text">Trivial Hack</p>
                       <ul>`;
   this.links.forEach((link)=>{
     this.elements += `

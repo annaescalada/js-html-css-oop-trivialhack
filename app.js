@@ -48,7 +48,6 @@ function main(){
   }
 
   function changePage(event) {
-    debugger;
     var url = event.target.attributes.url.value;
     routerInstance.buildDOM(url, layoutsInstance.main);
   }
