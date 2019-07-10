@@ -21,13 +21,23 @@ body {
   font-family: 'Montserrat', sans-serif;
   font-weight:400;
   font-size: 16px;
+  line-height: 250%;
 }
 
-h1 {}
+h1 {
+  font-size: 45px;
+  z-index:1;
+}
 
-h2 {}
+h2 {
+  z-index:1;
+}
 
-h3 {}
+h3 {
+  margin-block-start: 0;
+  margin: 2% 0 5% 0;
+  color: #383838e8;
+}
 
 p {
   margin: 0;
@@ -44,17 +54,27 @@ a {
   padding: 30px 10px;
   color: black;
   background: white;
+  position: sticky;
+  top: 0;
+  box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.1);
+  z-index: 999;
 }
 
 #site-footer {
-  color: white;
-  padding: 30px 0;
+  color: #c5c9ca;
+  font-size: 13px;
+  padding: 20px 0;
   background: #111;
   display: flex;
   justify-content: center;
 }
 
 #site-main {
+  
+}
+
+section, main header {
+  padding: 0 10px 0 10px;
 }
 
 /* ---- components ---- */
@@ -108,36 +128,44 @@ nav ul li {
   margin: 0 10% 0 10%;
 }
 
-nav ul li a:hover {
+nav ul li a:hover, nav ul li a:target {
   border-bottom: 2px solid #62D9F7;
 }
 
-main header {
-  /* background-color: #62D9F7; */
-  background-image: url("./images/tablero.jpeg");
-  height: 500px; /* You must set a specified height */
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
-  background-size: cover; /* Resize the background image to cover the entire container */
+main header.landing {
+  text-align: center;
+  position:relative;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(255 , 255, 255, 0.8)), url("./images/christopher-alvarenga-OlxU3VfTI8w-unsplash.jpg");
+  height: 600px; 
+  background-position: center; 
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.area{
-  background: #62D9F7;
-  width: 100%;
-  height: 200px;
+@keyframes animatedBackground {
+  from {
+    background-size: cover;
+    background-position: 50% 22%;
+  }
+  to {
+    background-size: cover;
+    background-position: 100% 22%;
+  }
 }
 
+
 .circles{
-  position: relative;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   overflow: hidden;
+  margin-block-start: 0;
 }
 
 .circles li{
@@ -146,7 +174,7 @@ main header {
   list-style: none;
   width: 20px;
   height: 20px;
-  animation: animate 25s linear infinite;
+  animation: animate 20s linear infinite;
   bottom: -150px;
   
 }
@@ -215,11 +243,149 @@ main header {
   0%{
       transform: translateY(0) rotate(0deg);
       border-radius: 0;
+      opacity:0.5;
   }
 
   100%{
       transform: translateY(-1000px) rotate(720deg);
       border-radius: 50%;
+      opacity:0;
   }
+}
 
+#landing-button {
+  padding: 20px 30px;
+    font-size: 25px;
+    z-index: 1;
+    font-family: 'Montserrat', sans-serif;
+    font-weight:600;
+    text-transform: uppercase;
+    background-color: #00c8fb;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    margin: 5%;
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.2);    
+    animation: 3s infinite bounce;
+}
+
+#landing-button:hover {
+  background-color: black;
+  animation: none;
+}
+
+@keyframes bounce {
+  0%{
+    background-color:#000;
+  }
+  5%{
+    background-color:#00c8fb;
+  }
+  10% {
+    background-color:#000;
+  }
+  15% {
+    background-color:#00c8fb;
+  }
+  20% {
+    background-color:#000;
+  }
+  25% {
+    background-color:#00c8fb;
+  }
+}
+
+main header.trivial {
+  text-align: center;
+  position:relative;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(255 , 255, 255, 0.8)), url("./images/christian-lambert-lnsHBbBC__w-unsplash.jpg");
+  height: 400px; 
+  background-position: center; 
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+section.difficulty-container {
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+section.difficulty-container button {
+  border: none;
+  color: white;
+  font-size: 16px;
+  text-transform: uppercase;
+  border-radius: 100%;
+  box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.2);
+  transform: scale(1);
+  transition: all 1s ease;
+  display: flex;
+  justify-content: center;
+  width: 110px;
+  height: 110px;
+}
+
+section.difficulty-container button:hover {
+  transform: scale(1.2);
+  transition: all 1s ease;
+}
+
+section.difficulty-container button.easy {
+  background: #96BF14;
+}
+
+section.difficulty-container button.medium {
+  background: #F19433;
+}
+
+section.difficulty-container button.hard {
+  background: #E3447A;
+}
+
+section.difficulty-container div {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+img.upside-down {
+  transform: rotate(180deg);
+}
+
+/* @keyframes background-color-dinamic {
+  0% {
+    background-color: #E3447A;
+    Xbackground: linear-gradient(to right, #FFF, #F19433)
+  }
+  25%{
+    background-color:#F19433;
+    Xbackground: linear-gradient(to right, #FFF, #E3447A)
+  }
+  50% {
+    background-color:#96BF14;
+    Xbackground: linear-gradient(to right, #96BF14, #00c8fb)
+  }
+  75% {
+    background-color:#00c8fb;
+    Xbackground: linear-gradient(to right, #96BF14, #00c8fb)
+  }
+  100% {
+    background-color: #E3447A;
+  }
+} */
+
+section.generate-question {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #00c8fb;
 }

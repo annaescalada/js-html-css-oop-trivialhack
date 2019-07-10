@@ -5,7 +5,7 @@ function TrivialPage(parentElement) {
   this.subParentElement = null;
   this.elements = null;
   this.data = null;
-  this.difficulty = null;
+  this.difficulty = 'easy';
   this.loading = null;
   this.question = null;
   this.category = null;
@@ -13,15 +13,16 @@ function TrivialPage(parentElement) {
 
 TrivialPage.prototype.generate = async function() {
   this.elements = `
-    <header>
-      <h2>Welcome to trivial game</h2>
+    <header class="trivial">
+      <h2>Welcome to Trivial Hack game</h2>
+      <h3>Choose easy, medium or hard, click generate question and guess if the answer is true or false</h2>
     </header>
     <section class="difficulty-container">
-      <h3>Chose difficulty</3>
+      <h3>Chose difficulty</h3>
     <div>
-      <button class="easy">Easy</button>
-      <button class="medium">Medium</button>
-      <button class="hard">Hard</button>
+      <button class="easy"><img src="styles/images/triangulito.png" width="20px"></button>
+      <button class="medium"><img src="styles/images/triangulito.png" width="20px"><img class="upside-down" src="styles/images/triangulito.png" width="20px"></button>
+      <button class="hard"><img src="styles/images/triangulito.png" width="20px"><img class="upside-down" src="styles/images/triangulito.png" width="20px"><img src="styles/images/triangulito.png" width="20px"></button>
     </div>
     </section>
     <section class="generate-question">
