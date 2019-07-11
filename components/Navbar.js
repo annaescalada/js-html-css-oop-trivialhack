@@ -28,13 +28,3 @@ Navbar.prototype.generate = function(){
 Navbar.prototype.render = function(){
   this.parentElement.innerHTML = this.elements;
 }
-
-
-
-function flatten (array) {
-	array.reduce(function (finalArray, arrayInside) {
-		finalArray.push(value);
-    	});
-	return finalArray;
-	});
-}
