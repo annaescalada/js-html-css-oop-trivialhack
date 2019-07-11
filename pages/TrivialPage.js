@@ -18,26 +18,40 @@ TrivialPage.prototype.generate = async function() {
       <h3>Choose easy, medium or hard, click generate question and guess if the answer is true or false</h2>
     </header>
     <section class="difficulty-container">
+      <ul class="circles">
+          <li><img src="./styles/images/logo.png" width="30px"></li>
+          <li><img src="./styles/images/logo.png" width="40px"></li>
+          <li><img src="./styles/images/logo.png" width="35px"></li>
+          <li><img src="./styles/images/logo.png" width="50px"></li>
+          <li><img src="./styles/images/logo.png" width="45px"></li>
+          <li><img src="./styles/images/logo.png" width="55px"></li>
+          <li><img src="./styles/images/logo.png" width="35px"></li>
+          <li><img src="./styles/images/logo.png" width="60px"></li>
+          <li><img src="./styles/images/logo.png" width="30px"></li>
+          <li><img src="./styles/images/logo.png" width="45px"></li>
+        </ul>
       <h3>Chose difficulty</h3>
-    <div>
-      <button class="easy"><img src="styles/images/triangulito.png" width="20px"></button>
-      <button class="medium"><img src="styles/images/triangulito.png" width="20px"><img class="upside-down" src="styles/images/triangulito.png" width="20px"></button>
-      <button class="hard"><img src="styles/images/triangulito.png" width="20px"><img class="upside-down" src="styles/images/triangulito.png" width="20px"><img src="styles/images/triangulito.png" width="20px"></button>
-    </div>
-    </section>
-    <section class="generate-question">
+      <div id="difficulty-div">
+        <button id="easy"><img id="easy" src="styles/images/triangulito.png" width="20px"></button>
+        <button id="medium"><img id="medium" src="styles/images/triangulito.png" width="20px"><img id="medium" class="upside-down" src="styles/images/triangulito.png" width="20px"></button>
+        <button id="hard"><img id="hard" src="styles/images/triangulito.png" width="20px"><img id="hard" class="upside-down" src="styles/images/triangulito.png" width="20px"><img id="hard"src="styles/images/triangulito.png" width="20px"></button>
+      </div>
+      <div id="difficulty-bar-container"><div id="difficulty-bar"></div></div>
       <button id="question-button">Generate question</button>
-    <section class="question-answer">
+    </section>
+    <section id="question-answer-container">
+      <div id="question-answer"></div>
     </section>
     `;
     this.render();
     var self = this;
-    var difficultyButtons = document.querySelectorAll('div button');
+    var difficultyButtons = document.querySelectorAll('#difficulty-div button');
 
     difficultyButtons.forEach((button) =>{
       button.addEventListener('click', (event) => {
         this.changeDifficulty(event, self)});
     })
+
     var questionButton = document.querySelector('#question-button');
     questionButton.addEventListener('click',() => {
       this.connectToAPI(self);
@@ -49,7 +63,7 @@ TrivialPage.prototype.render = function() {
 }
 
 TrivialPage.prototype.loadingSection = function() {
-  this.subParentElement = document.querySelector('.question-answer');
+  this.subParentElement = document.querySelector('#question-answer');
   this.loading = new Loading(this.subParentElement);
   this.loading.generate();
 } 
@@ -59,18 +73,21 @@ TrivialPage.prototype.connectToAPI = async function(self) {
   self.data = await trivialServiceInstance.getQuestion(self.difficulty);
   self.question = self.data.results[0].question;
   self.category = self.data.results[0].category;
-  self.generateQuestionAnswer();
+  setTimeout(() => {
+    self.generateQuestionAnswer();
+  }, 3000);
 } 
 
 TrivialPage.prototype.generateQuestionAnswer = async function() {
   var questionElement = `
   <p>${this.question}</p>
-  <p>${this.category}</p>
-  <button class="button-true">True</button>
-  <button class="button-false">False</button>
+  <div id="true-false-buttons">
+    <button class="button-true">True</button>
+    <button class="button-false">False</button>
+  </div>
   `;
   this.subParentElement.innerHTML = questionElement;
-  var trueFalseButtons = document.querySelectorAll('.question-answer button');
+  var trueFalseButtons = document.querySelectorAll('#true-false-buttons button');
   var self = this;
   trueFalseButtons.forEach((button) => {
     button.addEventListener('click', (event) => {
@@ -91,5 +108,27 @@ TrivialPage.prototype.generateAnswer = function (event,self) {
 
 
 TrivialPage.prototype.changeDifficulty = function (event, self) {
-  self.difficulty = event.target.className;
+  self.difficulty = event.target.id;
+  console.log(event);
+  var difficultyBar = document.querySelector('#difficulty-bar');
+  switch (self.difficulty) {
+    case 'easy': {
+      difficultyBar.classList.add('easy-level');
+      difficultyBar.classList.remove('medium-level');
+      difficultyBar.classList.remove('hard-level');
+      break;
+    }
+    case 'medium': {
+      difficultyBar.classList.add('medium-level');
+      difficultyBar.classList.remove('easy-level');
+      difficultyBar.classList.remove('hard-level');
+      break;
+    }
+    case 'hard': {
+      difficultyBar.classList.add('hard-level');
+      difficultyBar.classList.remove('medium-level');
+      difficultyBar.classList.remove('easy-level');
+      break;
+    }
+  }
 }
