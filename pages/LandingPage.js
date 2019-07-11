@@ -10,16 +10,16 @@ LandingPage.prototype.generate = function() {
   this.elements = `
     <header class="landing">
       <ul class="circles">
-              <li><img src="./styles/images/logo.png" width="30px"></li>
-              <li><img src="./styles/images/logo.png" width="40px"></li>
-              <li><img src="./styles/images/logo.png" width="35px"></li>
-              <li><img src="./styles/images/logo.png" width="50px"></li>
-              <li><img src="./styles/images/logo.png" width="45px"></li>
-              <li><img src="./styles/images/logo.png" width="55px"></li>
-              <li><img src="./styles/images/logo.png" width="35px"></li>
-              <li><img src="./styles/images/logo.png" width="60px"></li>
-              <li><img src="./styles/images/logo.png" width="30px"></li>
-              <li><img src="./styles/images/logo.png" width="45px"></li>
+              <li><img src="./styles/images/Logo.png" width="30px"></li>
+              <li><img src="./styles/images/Logo.png" width="40px"></li>
+              <li><img src="./styles/images/Logo.png" width="35px"></li>
+              <li><img src="./styles/images/Logo.png" width="50px"></li>
+              <li><img src="./styles/images/Logo.png" width="45px"></li>
+              <li><img src="./styles/images/Logo.png" width="55px"></li>
+              <li><img src="./styles/images/Logo.png" width="35px"></li>
+              <li><img src="./styles/images/Logo.png" width="60px"></li>
+              <li><img src="./styles/images/Logo.png" width="30px"></li>
+              <li><img src="./styles/images/Logo.png" width="45px"></li>
       </ul>
       <h1>Trivial Hack</h1>
       <h2>So you think you know everything about computer science?</h2>

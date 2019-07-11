@@ -19,16 +19,16 @@ TrivialPage.prototype.generate = async function() {
     </header>
     <section class="difficulty-container">
       <ul class="circles">
-          <li><img src="./styles/images/logo.png" width="30px"></li>
-          <li><img src="./styles/images/logo.png" width="40px"></li>
-          <li><img src="./styles/images/logo.png" width="35px"></li>
-          <li><img src="./styles/images/logo.png" width="50px"></li>
-          <li><img src="./styles/images/logo.png" width="45px"></li>
-          <li><img src="./styles/images/logo.png" width="55px"></li>
-          <li><img src="./styles/images/logo.png" width="35px"></li>
-          <li><img src="./styles/images/logo.png" width="60px"></li>
-          <li><img src="./styles/images/logo.png" width="30px"></li>
-          <li><img src="./styles/images/logo.png" width="45px"></li>
+          <li><img src="./styles/images/Logo.png" width="30px"></li>
+          <li><img src="./styles/images/Logo.png" width="40px"></li>
+          <li><img src="./styles/images/Logo.png" width="35px"></li>
+          <li><img src="./styles/images/Logo.png" width="50px"></li>
+          <li><img src="./styles/images/Logo.png" width="45px"></li>
+          <li><img src="./styles/images/Logo.png" width="55px"></li>
+          <li><img src="./styles/images/Logo.png" width="35px"></li>
+          <li><img src="./styles/images/Logo.png" width="60px"></li>
+          <li><img src="./styles/images/Logo.png" width="30px"></li>
+          <li><img src="./styles/images/Logo.png" width="45px"></li>
         </ul>
       <h3>Easy, medium or hard?</h3>
       <div id="difficulty-div">
