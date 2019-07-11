@@ -7,7 +7,7 @@ function Footer(parentElement) {
 
 Footer.prototype.generate = function(){
   var date = new Date();
-  this.elements = `<p>Copyright © ${date.getFullYear()} Anna Escalada. All rights reserved.</p>`;
+  this.elements = `<p>Copyright © ${date.getFullYear()} Trivial Hack. All rights reserved.</p>`;
   this.render();
 }
 
