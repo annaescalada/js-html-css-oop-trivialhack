@@ -35,7 +35,7 @@ h2 {
 
 h3 {
   margin-block-start: 0;
-  margin: 5% 0 5% 0;
+  margin: 4% 0;
   color: #383838e8;
 }
 
@@ -97,7 +97,7 @@ nav {
 .logo {
   width:50px;
   animation: 5s infinite rotate;
-  margin-right:15px;
+  margin-right:2%;
 }
 
 .loading {
@@ -152,7 +152,7 @@ main header.landing {
 }
 
 header.landing h3 {
-  color: #383838e8;
+  color: #6d6d6d;
 }
 
 .circles{
@@ -270,6 +270,17 @@ header.landing h3 {
   background-color: black;
 }
 
+#landing-button:hover {
+  transform: scale(1.15);
+  transition: all 0.5s ease;
+}
+
+#landing-button:active {
+  transform: scale(0.7);
+  transition: all 100ms ease;
+}
+
+
 main header.trivial {
   text-align: center;
   position:relative;
@@ -307,17 +318,17 @@ section.difficulty-container button {
   transition: all 0.5s ease;
   display: flex;
   justify-content: center;
-  width: 110px;
-  height: 110px;
+  width: 60px;
+  height: 60px;
 }
 
 section.difficulty-container button:hover {
-  transform: scale(1.2);
+  transform: scale(1.15);
   transition: all 0.5s ease;
 }
 
 section.difficulty-container button:active {
-  transform: scale(0.8);
+  transform: scale(0.7);
   transition: all 100ms ease;
 }
 
@@ -355,9 +366,9 @@ section.generate-question {
 
 
 #difficulty-bar-container {
-  height: 50px;
+  height: 35px;
   border-radius: 50px;
-  margin: 45px;
+  margin: 5% 0 7% 0;
   width: 80%;
   overflow: hidden;
   display: flex;
@@ -375,7 +386,7 @@ section.generate-question {
 }
 
 #difficulty-bar.easy-level {
-  width:15%;
+  width:10%;
   transition: width 2s ease;
 }
 
@@ -385,13 +396,13 @@ section.generate-question {
 }
 
 #difficulty-bar.hard-level {
-  width:85%;
+  width:90%;
   transition: width 2s ease;
 }
 
 #question-button {
   padding: 20px 30px;
-  font-size: 25px;
+  font-size: 20px;
   z-index: 1;
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
@@ -399,35 +410,23 @@ section.generate-question {
   color: white;
   border: none;
   border-radius: 50px;
-  margin: 5%;
-  width: 40%;
-  height: 15%;
-  line-height: 200%
+  margin: 5% 0 8%;
+  width: auto;
+  transform: scale(1);
+  transition: all 0.5s ease;
+  height: 1%;
 }
 
-
-
-@keyframes background-color-dinamic {
- 0% {
-   background-color: #E3447A;
-   Xbackground: linear-gradient(to right, #FFF, #F19433)
- }
- 25%{
-   background-color:#F19433;
-   Xbackground: linear-gradient(to right, #FFF, #E3447A)
- }
- 50% {
-   background-color:#96BF14;
-   Xbackground: linear-gradient(to right, #96BF14, #00c8fb)
- }
- 75% {
-   background-color:#00c8fb;
-   Xbackground: linear-gradient(to right, #96BF14, #00c8fb)
- }
- 100% {
-   background-color: #E3447A;
- }
+#question-button:hover {
+  transform: scale(1.15);
+  transition: all 0.5s ease;
 }
+
+#question-button:active {
+  transform: scale(0.7);
+  transition: all 100ms ease;
+}
+
 
 #question-answer-container {
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(255 , 255, 255, 0.8)), url("./images/casino.jpg");
@@ -435,8 +434,7 @@ section.generate-question {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  padding: 5% 15%;
-  width: 100
+  padding: 5% 10%;
 }
 
 #question-answer {
@@ -463,20 +461,32 @@ section.generate-question {
   color: white;
   border: none;
   border-radius: 50px;
-  width: 25%;
+  margin:2%;
   box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.2);    
 }
 
 #true-false-buttons button:hover {
-  background: black;
   transform: scale(1.2);
   transition: all 0.5s ease;
 }
 
 #true-false-buttons .button-true {
-  background-color: #96bf14;;
+  background-color: #96bf14;
 }
 
 #true-false-buttons .button-false {
-  background-color: #e3447a;;
+  background-color: #e3447a;
+}
+
+em {
+  font-style: normal;
+  font-weight: 600;
+}
+
+.correct em {
+  color: #96bf14
+}
+
+.incorrect em {
+  color: #e3447a;
 }

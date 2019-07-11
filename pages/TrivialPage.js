@@ -15,7 +15,7 @@ TrivialPage.prototype.generate = async function() {
   this.elements = `
     <header class="trivial">
       <h2>Welcome to Trivial Hack game</h2>
-      <h3>Choose easy, medium or hard, click generate question and guess if the answer is true or false</h2>
+      <h3>Choose the difficulty, click generate question and guess if the answer is true or false</h2>
     </header>
     <section class="difficulty-container">
       <ul class="circles">
@@ -30,11 +30,11 @@ TrivialPage.prototype.generate = async function() {
           <li><img src="./styles/images/logo.png" width="30px"></li>
           <li><img src="./styles/images/logo.png" width="45px"></li>
         </ul>
-      <h3>Chose difficulty</h3>
+      <h3>Easy, medium or hard?</h3>
       <div id="difficulty-div">
-        <button id="easy"><img id="easy" src="styles/images/triangulito.png" width="20px"></button>
-        <button id="medium"><img id="medium" src="styles/images/triangulito.png" width="20px"><img id="medium" class="upside-down" src="styles/images/triangulito.png" width="20px"></button>
-        <button id="hard"><img id="hard" src="styles/images/triangulito.png" width="20px"><img id="hard" class="upside-down" src="styles/images/triangulito.png" width="20px"><img id="hard"src="styles/images/triangulito.png" width="20px"></button>
+        <button id="easy"><img id="easy" src="styles/images/triangulito.png" width="15px"></button>
+        <button id="medium"><img id="medium" src="styles/images/triangulito.png" width="15px"><img id="medium" class="upside-down" src="styles/images/triangulito.png" width="15px"></button>
+        <button id="hard"><img id="hard" src="styles/images/triangulito.png" width="15px"><img id="hard" class="upside-down" src="styles/images/triangulito.png" width="15px"><img id="hard"src="styles/images/triangulito.png" width="15px"></button>
       </div>
       <div id="difficulty-bar-container"><div id="difficulty-bar"></div></div>
       <button id="question-button">Generate question</button>
@@ -98,9 +98,9 @@ TrivialPage.prototype.generateQuestionAnswer = async function() {
 
 TrivialPage.prototype.generateAnswer = function (event,self) {
   if (event.target.textContent === self.data.results[0].correct_answer) {
-    var answerElement = `<p class="correct">Your answer is correct!</p>`;
+    var answerElement = `<p class="correct">Your answer is <em>correct</em>!!!</p>`;
   } else {
-    var answerElement = `<p class="incorrect">Your answer is incorrect!</p>`;
+    var answerElement = `<p class="incorrect">Your answer is <em>incorrect</em>. You are not a true Trivial Hacker.</p>`;
   }
   this.subParentElement.innerHTML = answerElement;
 }
