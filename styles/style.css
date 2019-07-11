@@ -50,6 +50,12 @@ a {
 
 /* ---- layout ---- */
 
+#root {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+
 #site-header {
   padding: 30px 20px;
   color: black;
@@ -67,10 +73,6 @@ a {
   background: #111;
   display: flex;
   justify-content: center;
-}
-
-#site-main {
-  
 }
 
 section, main header {
@@ -141,7 +143,6 @@ main header.landing {
   text-align: center;
   position:relative;
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(255 , 255, 255, 0.8)), url("./images/christopher-alvarenga-OlxU3VfTI8w-unsplash.jpg");
-  height: 600px; 
   background-position: center; 
   background-repeat: no-repeat;
   background-size: cover;
@@ -149,6 +150,7 @@ main header.landing {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100%;
 }
 
 header.landing h3 {
