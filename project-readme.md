@@ -1,94 +1,89 @@
 # Snake
 
 ## Description
-Trivial game.
+Trivial Hack is inspired in the famous Trivial Game but this time with true or false computer science questions.
 ## MVP (DOM - CANVAS)
 
-Snake that moves through the canvas and eats apples to increase score.
-
-Game is over if snake collapses on itself.
+The player can generate random questions and has to guess if they are true or false.
 
 
 ## Backlog
 
-- When score reaches a certain number, level increases and snake moves faster.
-
-- When snake eats food, grows.
-
-- The player introduces name and a ranking is shown on game over screen.
+- The player can change the difficulty of the question.
 
 ## Data structure
 
-Game
+Components:
 
-  Classes:
-    this.snake
-    this.food
-    this.newFood
-    this.isGameOver
-    this.onGameOver
-    this.canvas
-    this.ctx
-    this.totalScore;
-    this.level
-    this.backgroundMusic
-    this.eatSound
-    this.gameOverSound
+  Navbar
+  this.parentElement
+    this.links
+    this.style
+    this.render()
+    this.generate()
+    
+  Footer
+  this.parentElement
+    this.style
+    this.render()
+    this.generate()
 
-  Methods:
-    this.prototype.startGame()
-    this.prototype.update()
-    this.prototype.clear()
-    this.prototype.draw()
-    this.prototype.findFood()
-    this.prototype.levelUp()
-    this.prototype.checkCollisions()
-    this.prototype.gameOverCallback()
-    this.prototype.randomize();
-    this.prototype.checkInSnake();
-    this.prototype.styleCanvas();
-    prototype.setSpeed();
-    this.ranking();
+  Cards
+    this.cardStyle
+  this.movie
+  this.generate()
 
-Snake
+  Loading
+    this.parentElement
+    this.style
+    this.render()
+    this.generate()
 
-  Classes:
-    this.canvas
-    this.ctx
-    this.size
-    this.positions
-    this.direction
-    this.isClicked
-    this.color
+Pages:
 
-  Methods:
-    this.prototype.mode()
-    this.prototype.draw()
-    this.prototype.setDirection()
-    this.prototype.setClicked()
+  LandingPage
+    this.parentElement
+    this.title
+    this.subtitle
+    this.style
+    this.render()
+    this.generate()
 
-Food
+  TrivialPage
+    this.parentElement
+    this.title
+    this.movies
+    this.style
+    this.render()
+    this.generate()
+    this.getMovies()
+    this.callSWService()
 
-  Classes:
-    this.canvas
-    this.ctx
-    this.size
-    this.x
-    this.y
-    this.color
-    this.appleIcon
+Services:
 
-  Methods:
-    this.prototype.draw()
+  Service
+    this.baseUrl
+    this.getAllMovies()
+
+Layout
+	this.root
+	this.style
+	this.render()
+	this.generate()
+	this.getContainers()
+
+Router
+	this.url
+	this.generatePage()
+
+App
 
 
 ## States y States Transitions
 Definition of the different states and their transition:
 
-- splashScreen: consists on the first screen of the game and has a button to start the game.
-- gameScreen: is the gameplay screen with the canvas.
-- gameoverScreen: is shown when the player runs the snake on itself, shows total score and level reached and has a button to restart the game.
-
+- Landing Page: consists on the first screen of the website and has a button to start the game.
+- Trivial Page: consists on the difficulty selector and the button to generate questions.
 
 ## Task
 
@@ -96,23 +91,19 @@ Create folder and files locally.
 
 Setup git and remote repository.
 
-Create main.js and transition screens.
+Create components.
 
-Create game.js and game loop.
+Create pages.
 
-Create Snake.js.
+Create layout, router and services.
 
-Create Food.js.
+Create app.
 
-Work on the game over condition with a new method checkCollision in game.
+Apply styles.
 
 Backlog:
+  Change difficulty of the question.
 
-  Make snake grow when eats an apple.
-
-  Increase level depending on score and increase speed.
-
-Edit CSS stylesheet to make the game more user friendly.
 
 ## Links
 
@@ -123,10 +114,10 @@ Edit CSS stylesheet to make the game more user friendly.
 
 ### Git
 URls for the project repo and deploy
-[Link Repo](http://github.com)
-[Link Deploy](http://github.com)
+[Link Repo](https://github.com/annaescalada/trivial-web)
+[Link Deploy](https://annaescalada.github.io/trivial-web/#0)
 
 
 ### Slides
 URls for the project presentation (slides)
-[Link Slides.com](http://slides.com)
+[Link Slides.com](https://docs.google.com/presentation/d/1TJ2onuva3uXLwXxRwbx3L3rYtGlsHyOlUwNxSZepGqg/edit?usp=sharing)
