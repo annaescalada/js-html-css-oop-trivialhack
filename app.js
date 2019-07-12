@@ -40,11 +40,15 @@ function main(){
   }
 
   function addListenersToNavbar() {
+    debugger;
     var anchors = document.querySelectorAll('nav a');
     anchors.forEach((anchor) => {
       anchor.addEventListener('click',changePage);
     })
-
+    var logo = document.querySelector('nav img.logo');
+    var logoText = document.querySelector('nav p.logo-text');
+    logo.addEventListener('click',changePage);
+    logoText.addEventListener('click',changePage);
   }
 
   function changePage(event) {

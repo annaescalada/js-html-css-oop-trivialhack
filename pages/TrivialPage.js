@@ -14,8 +14,8 @@ function TrivialPage(parentElement) {
 TrivialPage.prototype.generate = async function() {
   this.elements = `
     <header class="trivial">
-      <h2>Welcome to Trivial Hack game</h2>
-      <h3>Choose the difficulty, click generate question and guess if the answer is true or false</h2>
+      <h2 class="fade-in-fwd">Welcome to Trivial Hack game</h2>
+      <h3 class="fade-in-fwd">Choose the difficulty, click generate question and guess if the answer is true or false</h2>
     </header>
     <section class="difficulty-container">
       <ul class="circles">
@@ -40,7 +40,7 @@ TrivialPage.prototype.generate = async function() {
       <button id="question-button">Generate question</button>
     </section>
     <section id="question-answer-container">
-      <div id="question-answer"></div>
+      <div id="question-answer"><p class="introduction">Click the <em>generate question</em> button above to start your Trivial Hack.</p></div>
     </section>
     `;
     this.render();
@@ -98,7 +98,7 @@ TrivialPage.prototype.generateQuestionAnswer = async function() {
 
 TrivialPage.prototype.generateAnswer = function (event,self) {
   if (event.target.textContent === self.data.results[0].correct_answer) {
-    var answerElement = `<p class="correct">Your answer is <em>correct</em>!!!</p>`;
+    var answerElement = `<p class="correct">Your answer is <em>correct</em>!!! Welcome to the family, Trivial Hacker.</p>`;
   } else {
     var answerElement = `<p class="incorrect">Your answer is <em>incorrect</em>. You are not a true Trivial Hacker.</p>`;
   }

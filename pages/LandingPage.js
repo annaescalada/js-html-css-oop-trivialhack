@@ -21,9 +21,9 @@ LandingPage.prototype.generate = function() {
               <li><img src="./styles/images/Logo.png" width="30px"></li>
               <li><img src="./styles/images/Logo.png" width="45px"></li>
       </ul>
-      <h1>Trivial Hack</h1>
-      <h2>So you think you know everything about computer science?</h2>
-      <button id="landing-button">Play</button>
+      <h1 class="fade-in-fwd">Trivial Hack</h1>
+      <h2 class="fade-in-fwd">So you think you know everything about computer science?</h2>
+      <button id="landing-button" class="fade-in-fwd">Play</button>
     </header>
   `;
   this.render();
