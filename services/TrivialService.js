@@ -1,13 +1,14 @@
 'use strict';
 
-function TrivialService() {
-  this.baseUrl = `https://opentdb.com/api.php`;
+class TrivialService {
+  constructor (){
+    this.baseUrl = `https://opentdb.com/api.php`;
+  }
+  async getQuestion(difficulty) {
+    const result = await fetch(`${this.baseUrl}?amount=1&category=18&difficulty=${difficulty}&type=boolean`);
+    const data = await result.json();
+    return data;
+  }
 }
 
-TrivialService.prototype.getQuestion = async function(difficulty) {
-  var result = await fetch(`${this.baseUrl}?amount=1&category=18&difficulty=${difficulty}&type=boolean`);
-  var data = await result.json();
-  return data;
-}
-
-var trivialServiceInstance = new TrivialService();
+const trivialServiceInstance = new TrivialService();

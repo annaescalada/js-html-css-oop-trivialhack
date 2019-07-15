@@ -1,16 +1,16 @@
 'use strict';
 
-function Footer(parentElement) {
-  this.parentElement = parentElement;
-  this.elements = null;
-}
-
-Footer.prototype.generate = function(){
-  var date = new Date();
-  this.elements = `<p>Copyright © ${date.getFullYear()} Trivial Hack. All rights reserved.</p>`;
-  this.render();
-}
-
-Footer.prototype.render = function() {
-  this.parentElement.innerHTML = this.elements;
+class Footer {
+  constructor(parentElement) {
+    this.parentElement = parentElement;
+    this.elements = null;
+  }
+  generate() {
+    const date = new Date();
+    this.elements = `<p>Copyright © ${date.getFullYear()} Trivial Hack. All rights reserved.</p>`;
+    this.render();
+  }
+  render() {
+    this.parentElement.innerHTML = this.elements;
+  }
 }
