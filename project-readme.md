@@ -1,4 +1,4 @@
-# Snake
+# Trivial Hack
 
 ## Description
 Trivial Hack is inspired in the famous Trivial Game but this time with true or false computer science questions.
