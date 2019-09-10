@@ -45,15 +45,14 @@ class TrivialPage {
       </section>
       `;
       this.render();
-      const self = this;
       const difficultyButtons = document.querySelectorAll('#difficulty-div button');
       difficultyButtons.forEach((button) =>{
         button.addEventListener('click', (event) => {
-          this.changeDifficulty(event, self)});
+          this.changeDifficulty(event)});
       })
       const questionButton = document.querySelector('#question-button');
       questionButton.addEventListener('click',() => {
-        this.connectToAPI(self);
+        this.connectToAPI();
       });
   }
   render() {
@@ -65,16 +64,16 @@ class TrivialPage {
     this.loading = new Loading(this.subParentElement);
     this.loading.generate();
   }
-  connectToAPI() {
-    self.loadingSection();
-    self.data = await trivialServiceInstance.getQuestion(self.difficulty);
-    self.question = self.data.results[0].question;
-    self.category = self.data.results[0].category;
+  async connectToAPI() {
+    this.loadingSection();
+    this.data = await trivialServiceInstance.getQuestion(this.difficulty);
+    this.question = this.data.results[0].question;
+    this.category = this.data.results[0].category;
     setTimeout(() => {
-      self.generateQuestionAnswer();
+      this.generateQuestionAnswer();
     }, 3000);
   }
-  async generateQuestionAnswer() {
+  generateQuestionAnswer() {
     const questionElement = `
     <p>${this.question}</p>
     <div id="true-false-buttons">
@@ -84,25 +83,25 @@ class TrivialPage {
     `;
     this.subParentElement.innerHTML = questionElement;
     const trueFalseButtons = document.querySelectorAll('#true-false-buttons button');
-    const self = this;
     trueFalseButtons.forEach((button) => {
       button.addEventListener('click', (event) => {
-        this.generateAnswer(event,self);
+        this.generateAnswer(event);
       });
     });
   }
-  generateAnswer(event,self) {
-    if (event.target.textContent === self.data.results[0].correct_answer) {
-      const answerElement = `<p class="correct">Your answer is <em>correct</em>!!! Welcome to the family, Trivial Hacker.</p>`;
+  generateAnswer(event) {
+    let answerElement = '';
+    if (event.target.textContent === this.data.results[0].correct_answer) {
+      answerElement = `<p class="correct">Your answer is <em>correct</em>!!! Welcome to the family, Trivial Hacker.</p>`;
     } else {
-      const answerElement = `<p class="incorrect">Your answer is <em>incorrect</em>. You are not a true Trivial Hacker.</p>`;
+      answerElement = `<p class="incorrect">Your answer is <em>incorrect</em>. You are not a true Trivial Hacker.</p>`;
     }
     this.subParentElement.innerHTML = answerElement;
   }
-  changeDifficulty(event,self) {
-    self.difficulty = event.target.id;
+  changeDifficulty(event) {
+    this.difficulty = event.target.id;
     const difficultyBar = document.querySelector('#difficulty-bar');
-    switch (self.difficulty) {
+    switch (this.difficulty) {
       case 'easy': {
         difficultyBar.classList.add('easy-level');
         difficultyBar.classList.remove('medium-level');

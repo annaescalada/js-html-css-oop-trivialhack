@@ -18,12 +18,12 @@ Router.prototype.buildDOM = function (url, parentElement) {
   }
 }
 
-Router.prototype.generateLandingPage = function(parentElement) {
+Router.prototype.generateLandingPage = (parentElement) => {
   this.page = new LandingPage(parentElement);
   this.page.generate();
 }
 
-Router.prototype.generateTrivialPage = function(parentElement) {
+Router.prototype.generateTrivialPage = (parentElement) => {
   this.page = new TrivialPage(parentElement);
   this.page.generate(); 
 }

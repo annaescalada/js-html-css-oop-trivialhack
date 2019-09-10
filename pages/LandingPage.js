@@ -27,15 +27,14 @@ class LandingPage{
     `;
     this.render();
     const button = document.querySelector('#landing-button');
-    const self = this;
     button.addEventListener('click',() => {
-      this.changePage(self);
+      this.changePage(this);
     });
   }
   render() {
     this.parentElement.innerHTML = this.elements;
   }
-  changePage(self) {
-    routerInstance.buildDOM('/trivial', self.parentElement);
+  changePage() {
+    routerInstance.buildDOM('/trivial', this.parentElement);
   }
 }
